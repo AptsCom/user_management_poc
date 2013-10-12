@@ -1,0 +1,48 @@
+<%= form_for :user_search, url: {action: "show"} do |f| %>
+  <% if @search.present? && @search.respond_to?('errors') %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@search.errors.count, "error") %> prohibited
+        this search from being run:</h2>
+      <ul>
+      <% @search.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <p>
+    <%= f.label :criteria %><br>
+    <%= f.text_field :criteria %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <% if @search.present? && @search.respond_to?('each') %>
+    <table class="sortable">
+      <tr>
+      	<th align="left">First Name</th>
+        <th align="left">Last Name</th>
+        <th align="left">Email</th>
+        <th align="left">User Id</th>
+        <th align="left">Status</th>
+        <th align="left"></th>
+      </tr>
+      <% @search.each do |user| %>
+        <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.id %></td>
+        <td><%= user.status %></td>
+        <td><%= link_to 'Edit', edit_user_path(user.id) %></td>
+        </tr>
+      <% end %>
+    </table>
+  <%elsif @search_completed %>
+    No Results found
+  <% end %>
+
+<% end %>
