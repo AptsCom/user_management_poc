@@ -1,3 +1,49 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body{
+  min-height: 100%;
+  height: 100%;
+}
+
+.container-fluid-full {
+  height: auto !important;
+  min-height: 100%;
+}
+
+#footer, #push{
+  height: 60px;
+}
+
+h1#dashboard-title span {
+  margin-left: 7px;
+}
+
+#properties-table-container,
+#lead-details {
+  display: none;
+}
+
+#market-summary {
+  display: none;
+}
+
+#property-select-header {
+  background-color: #fff;
+  height: 31px;
+  width: 100%;
+  padding-top: 6px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+#no-results-found {
+  display: none;
+}
+
+.wide-field {
+  min-width: 150px;
+}

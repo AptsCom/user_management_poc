@@ -1,14 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-  <title>UserManagement</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <meta charset="utf-8">
+
+  <title><%= content_for?(:title) ? yield(:title) : "User Management - Apartments.com" %></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag :modernizr %>
+  <%= javascript_include_tag "sorttable" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <img src="/assets/aptlogo.png" class="brand" />
+        <div class="navbar pull-right logged-user">
+                Welcome, <a title="Return to Portal" class="current-user" href="<%= ENV['SSO_PORTAL_URL'] %>"><%= @current_user ? @current_user.first_name : "Demo User" %></a> &#8211; <a title="Sign Out" class="sign-out-user" href="/signout">Sign Out</a>
+        </div>
+    </div>
+</div>
+
+<div id="config" class="hidden" data-property-select-limit="<%= @property_select_limit %>" data-track-nums="<%=@current_user ? @current_user.track_nums : ''%>" data-base-url="<%= ENV['REPORTING_API_URL'] %>" data-token="<%= session[:auth_token] %>" data-property-ids="<%= @current_user ? @current_user.property_ids : session[:property_ids]%>" data-user-type="<%= @current_user ? @current_user.user_level : ''%>"></div>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="nav-apps">
+            <span id="navtips">
+                <ul>
+                    <li><a href="<%= ENV['SSO_PORTAL_URL'] %>">Portal</a></li>
+                    <li><a>></a></li>
+                    <li><a href="/" class="active">User Management</a></li>
+                </ul>
+            </span>
+            <span id="feedback"><i class="icon-comment"></i> <a href="https://www.surveymonkey.com/s/92W769R?c=OR" target="_blank">Do you like this tool? Tell us what you think!</a> </span>
+        </div>
+    </div>
+</div><!-- /navbar -->
+
+<div class="container-fluid-full">
+
+    <div class="row-fluid">
+        <div id="sidebar-left" class="span2">
+            <div class="sidebar-nav">
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li id="properties-button" class="sidebar-tab active">
+                        <a href="#summary">
+                            <i class="icon-dashboard"></i>
+                            <span class="hidden-tablet">User Management</span>
+                        </a>
+                    </li>
+                    <li id="compare-months-tab" class="sidebar-tab active">
+                        <a href="#compare-months">
+                            <i class="icon-user"></i>
+                            <span class="hidden-tablet">Create User</span>
+                        </a>
+                    </li>
+                    <li id="leads-button" class="sidebar-tab">
+                        <a href="#leads">
+                            <i class="icon-ok-sign"></i>
+                            <span class="hidden-tablet">Lead Details</span>
+                        </a>
+                    </li>
+                    <li id="market-search-tab" class="sidebar-tab">
+                        <a href="#market-search">
+                            <i class="icon-map-marker"></i>
+                            <span class="hidden-tablet">Market Search</span>
+                        </a>
+                    </li>
+                    <li id="market-button" class="sidebar-tab" data-toggle="collapse" data-target="#market-cities">
+                        <a id="cities-modal-trigger" href="#" data-placement="right" >
+                            <i class="icon-plus-sign"></i>
+                            <span class="hidden-tablet">Market Metrics</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="market-cities" class="hidden-tablet collapse" data-bind="visible: showMarketMetricsTab">
+                <ul id="properties-cities" data-bind="foreach: cities">
+                    <li><i class="icon-map-marker"></i>
+                    <a href="#market"></a></li>
+                </ul>
+            </div>
+            <div id="market-cities-modal" class="modal hide fade">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>Please select a city</h3>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="span10">
+            <div id="properties" class="row-fluid">
+                <%= yield %>
+            </div>
+
+            <div id="dashboard">
+
+                <div class="async-loader">
+                  <div class="icon">
+                    <%= image_tag('loader.gif', :width => 54, :height => 55) %>
+                  </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>&copy; <%= Time.now.year %> Classified Ventures, LLC</footer>
 
 </body>
 </html>

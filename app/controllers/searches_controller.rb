@@ -1,18 +1,23 @@
 class SearchesController < ApplicationController
 
-  def create
-    
-    @search = UserSearch.new(params[:user_search][:criteria])
+before_filter :scope_search
 
-    if @search.valid?
-      @search = @search.results_for()
-      @search_completed = true
-    end
-    
-    render 'show'
-  end
+def create
+  @results = @search.valid? && @search.results_for()
+  params[:user_search].each {|key, value| instance_variable_set("@#{key}",value) }
 
-  def show
-  end
+  render 'show'
+end
+
+def show
+end
+
+private
+
+def scope_search
+  criteria = params[:user_search] || {}
+  @search = UserSearch.new(criteria)
+end  
+
 
 end

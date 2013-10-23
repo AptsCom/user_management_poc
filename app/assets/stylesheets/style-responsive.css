@@ -1,0 +1,402 @@
+/* Higher than 1200 (desktop devices) */
+@media (min-width: 1200px) {
+    .brand {
+        float: left;
+        padding: 15px 0;
+    }
+    a.brand {
+        position: absolute;
+        left: 0px;
+    }
+    .container-fluid-full {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+    }
+    .container-fluid-full #content {
+        width: 85.578%;
+        padding: 28px;
+        margin: 0px 0px;
+        margin-left: 14.422% !important;
+    }
+    .container-fluid-full #sidebar-left {
+        margin-left: 0px !important;
+        position: absolute;
+        height: 100%;
+    }
+    footer {
+        position: relative;
+    }
+
+    /* Search Properties View */
+    .search-properties-form .box-content h2 { margin: 0 0 10px; font-size: 26px; line-height: 26px; }
+
+    .search-properties-form .report-actions .cancel {
+        border: none;
+        -webkit-border-radius: 4px 4px 4px 4px;
+        border-radius: 4px 4px 4px 4px;
+        color: #0088CC;
+        cursor: pointer;
+        background: transparent none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } /* If view > 480px, make cancel button act like .btn-link */
+
+    .search-properties-form .report-actions .cancel:hover { 
+        text-decoration: underline;
+    }
+}
+
+/* Higher than 960 (desktop devices) */
+@media only screen and (min-width: 980px) and (max-width: 1199px) {
+
+    .brand { padding: 15px 0; }
+
+    a.brand {
+        display: block;
+        width: 13.1%;
+        position: absolute;
+        left: 0px;
+    }
+    .container-fluid-full {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+    }
+    .container-fluid-full #content {
+        width: 85.578%;
+        padding: 20px;
+        margin: 0px 0px;
+        margin-left: 14.422% !important;
+    }
+    .container-fluid-full #sidebar-left {
+        margin-left: 0px !important;
+        position: absolute;
+        height: 100%;
+    }
+    .sparkLineStats li .number {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 0 5px;
+        color: #FA5833;
+    }
+    footer {
+        position: relative;
+    }
+
+    /* Search Properties View */
+    .search-properties-form .box-content h2 { margin: 0 0 10px; font-size: 26px; line-height: 26px; }
+
+    .search-properties-form .report-actions .cancel {
+        border: none;
+        -webkit-border-radius: 4px 4px 4px 4px;
+        border-radius: 4px 4px 4px 4px;
+        color: #0088CC;
+        cursor: pointer;
+        background: transparent none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } /* If view > 480px, make cancel button act like .btn-link */
+
+    .search-properties-form .report-actions .cancel:hover { 
+        text-decoration: underline;
+    }
+
+}
+
+/* Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+    .brand { padding: 15px 0; }
+
+    a.brand {
+        display: block;
+        position: absolute;
+        left: 0px;
+        width: 8.334% !important;
+    }
+    a.brand span {
+        font-size: 12px;
+    }
+    .container-fluid-full {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+    }
+    .container-fluid-full #content {
+        width: 91.666%;
+        padding: 22px;
+        margin: 0px 0px;
+        margin-left: 8.334% !important;
+    }
+    .container-fluid-full #sidebar-left {
+        margin-left: 0px !important;
+        position: absolute;
+        height: 100%;
+        width: 8.334% !important;
+    }
+    .container-fluid-full #sidebar-left .actions {
+        display: none;
+    }
+    .sidebar-nav ul {
+        text-align: center;
+        width: 100% !important;
+        font-size: 20px;
+        margin: -10px 10px 0px 10px !important;
+    }
+    .sidebar-nav ul li a {
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar-nav ul li ul > li {
+        margin: 0px 10px 0px 0px;
+        padding: 0;
+    }
+    .noMargin {
+        margin-left: 0px !important;
+    }
+    .btn-navbar {
+        display: none !important;
+    }
+    .nav-collapse,
+    .nav-collapse.collapse {
+        height: auto !important;
+        overflow: visible !important;
+        margin-left: -20px !important;
+    }
+    .sidebar-nav {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .stats-date .range {
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .sparkLineStats li .number {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 0 5px;
+        color: #FA5833;
+    }
+    footer {
+        margin: 20px -20px 0px -20px;
+        padding: 10px 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    #properties-table tbody td {
+        max-width: 58px;
+        word-wrap: break-word;
+    }
+
+    /* Search Properties View */
+    .search-properties-form .box-content h2 { margin: 0 0 10px; font-size: 26px; line-height: 26px; }
+
+    .search-properties-form .report-actions .cancel {
+        border: none;
+        -webkit-border-radius: 4px 4px 4px 4px;
+        border-radius: 4px 4px 4px 4px;
+        color: #0088CC;
+        cursor: pointer;
+        background: transparent none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } /* If view > 480px, make cancel button act like .btn-link */
+
+    .search-properties-form .report-actions .cancel:hover { 
+        text-decoration: underline;
+    }
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+
+    /* Structure */
+    .container-fluid-full { min-height: auto; }
+
+    .navbar .navbar-inner { padding: 0 10px; }
+    
+    .btn-navbar {
+        position: absolute;
+        top: 45px;
+        right: 30px;
+        z-index: 100;
+        background: transparent !important;
+        text-shadow: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    #content {
+        overflow: hidden;
+    }
+    .nav-tabs.nav-stacked > li {
+        margin: 0px !important;
+    }
+    .nav-tabs.nav-stacked > li > a {
+        margin: 0px !important;
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+    .nav-tabs.nav-stacked > li > ul > li > a {
+        font-size: 12px;
+    }
+    .nav-tabs.nav-stacked > li > a > i {
+        display: inline;
+        margin-right: 10px;
+    }
+    .nav-tabs.nav-stacked > li > ul > li > a > i {
+        display: inline;
+        margin-right: 10px;
+    }
+    .nav-tabs.nav-stacked > li.active > a {
+        border: 0px;
+    }
+    .nav-tabs.nav-stacked > li.active > ul {
+        border: 0px;
+    }
+
+    /* Current User */
+    .pull-right.logged-user {
+        float: none;
+        display: block;
+        margin: 0;
+        padding: 5px 10px;
+        text-align: left;
+    }
+
+    /* Search Properties View */
+    .search-properties-form .box-content h2 { font-size: 22px; line-height: 22px; margin: 0 0 7px; }
+    .search-properties-form .span3.left { margin: 0 0 15px; padding: 0 0 15px; border-bottom: 1px solid #ccc; }
+
+    #search-controls form { margin: 0; }
+
+    .search-properties-form .report-actions .cancel {
+        border: none;
+        -webkit-border-radius: 4px 4px 4px 4px;
+        border-radius: 4px 4px 4px 4px;
+        color: #0088CC;
+        cursor: pointer;
+        background: transparent none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } /* If view > 480px, make cancel button act like .btn-link */
+    
+    .search-properties-form .report-actions .cancel:hover { 
+        text-decoration: underline;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    body {
+        padding: 0px;
+    }
+    #content {
+        padding: 5px;
+    }
+    .mobileHalf {
+        width: 48% !important;
+        float: left !important;
+        margin: 1% !important;
+    }
+    .quick-button,
+    .quick-button-small {
+        margin-bottom: 20px;
+    }
+    .pull-right {
+        margin: 10px auto;
+        text-align: center;
+    }
+    footer {
+        position: relative;
+    }
+
+    /* Logo */
+    .brand { padding: 10px 7px; }
+
+    /* Nav */
+    .navbar .navbar-inner { padding: 0 10px; }
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+    .brand {
+        padding: 10px 7px;
+        width: 150px;
+    }
+
+    .head-leads{
+        font-size: 12px;
+    }
+
+    /* Nav */
+    .navbar .navbar-inner { padding: 0 7px; }
+
+    .nav-apps ul li {
+        margin-right: 5px;
+    }
+    .nav-apps a {
+        color: #406618;
+        font-size: 10px;
+    }
+
+    body {
+        padding: 0px;
+    }
+    #content {
+        padding: 5px;
+    }
+    .quick-button,
+    .quick-button-small {
+        margin-bottom: 20px;
+    }
+    .pull-right {
+        margin: 10px auto;
+        text-align: center;
+    }
+    table,
+    .pagination {
+        font-size: 10px;
+    }
+    .pagination {
+        padding: 5px;
+    }
+    footer {
+        padding: 10px 20px;
+    }
+
+    h1#dashboard-title {
+        font-size: 22px;
+    }
+
+    .property-selector {
+        margin-left: 30px !important;
+    }
+
+    /* Logged User */
+    .pull-right.logged-user { padding: 5px 7px; }
+
+    /* Property Search View */
+    .search-properties-form .report-actions .btn {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    } /* .btn-block */
+    .search-properties-form  .report-actions .cancel {
+        margin: 5px 0 0;
+    } /* .btn-block + .btn-block */
+
+    .nav-apps #feedback a{
+        font-size: 9px;
+    }
+}

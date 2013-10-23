@@ -1,5 +1,13 @@
-<%= form_for :user_search, url: {action: "show"} do |f| %>
-  <% if @search.present? && @search.respond_to?('errors') %>
+ <div class="row-fluid">
+     <h1>
+         <i class="icon-zoom-in"></i>
+         Select User
+     </h1>
+     <hr />
+ </div>
+
+<%= form_for :user_search do |f| %>
+  <% if @search.errors.any? %>
     <div id="errorExplanation">
       <h2><%= pluralize(@search.errors.count, "error") %> prohibited
         this search from being run:</h2>
@@ -12,16 +20,24 @@
   <% end %> 
 
   <p>
-    <%= f.label :criteria %><br>
-    <%= f.text_field :criteria %>
+    <%= f.text_field :first_name, :value => @first_name, :placeholder => 'First Name' %>
+  </p>
+  <p>
+    <%= f.text_field :last_name, :value => @last_name, :placeholder => 'Last name' %>
+  </p>
+    <p>
+    <%= f.text_field :email, :value => @email, :placeholder => 'Email' %>
+  </p>
+  <p>
+    <%= f.text_field :id, :value => @id, :placeholder => 'User ID' %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Search", :class => "btn"%>
   </p>
 
-  <% if @search.present? && @search.respond_to?('each') %>
-    <table class="sortable">
+  <% if @results.present? %>
+    <table class="table table-striped sortable">
       <tr>
       	<th align="left">First Name</th>
         <th align="left">Last Name</th>
@@ -30,7 +46,7 @@
         <th align="left">Status</th>
         <th align="left"></th>
       </tr>
-      <% @search.each do |user| %>
+      <% @results.each do |user| %>
         <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
@@ -41,7 +57,7 @@
         </tr>
       <% end %>
     </table>
-  <%elsif @search_completed %>
+  <% elsif @search.completed? %>
     No Results found
   <% end %>
 

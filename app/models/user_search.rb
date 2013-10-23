@@ -2,31 +2,45 @@ class UserSearch
 
   include ActiveModel::Validations
 
-  validates_presence_of :criteria
-  validates_size_of :criteria, :minimum => 2
-
+  validates_size_of :first_name, :last_name, :email, :minimum => 2, :allow_blank => true
+  validates_numericality_of :id, :only_integer => true, :allow_blank => true
+  validate :criteria_present?
   attr_accessor :criteria
 
-  def initialize(criteria)
-    @criteria = criteria
+  def initialize(criteria = {})
+    self.criteria = criteria
   end
 
-  def results_for()
+  def read_attribute_for_validation(key)
+    criteria[key]
+  end
+
+  def query
+  	criteria.delete_if {|key, value| value.blank? }
+  end
+
+  def results_for
     @results = User
-    unless is_integer? @criteria
-      @results = @results.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ?","%#{@criteria}%", "%#{@criteria}%", "%#{@criteria}%")
-    else
-      @results = @results.where("email LIKE ? OR id = ?", "%#{@criteria}%", @criteria)
+    user_columns = User.columns_hash
+    criteria.each do |key, value|
+      if user_columns[key].type == :integer
+      	@results = @results.where("#{key} = ?", value)
+      else	
+        @results = @results.where("#{key} LIKE ?", "%#{value}%")
+      end 
     end
     @results = @results.order("status ASC, last_name ASC").limit(100)
     
     @results
   end
 
-  private 
-
-  def is_integer?(obj) 
-   obj.to_s.match(/\A\d+?\Z/) == nil ? false : true
+  def completed?
+    self.criteria.present? && valid?
   end
 
+  private 
+
+  def criteria_present?
+    errors[:base] << "No search criteria specified" if query.empty?
+  end
 end
