@@ -16,7 +16,7 @@ class UserSearch
   end
 
   def query
-  	criteria.delete_if {|key, value| value.blank? }
+    criteria.delete_if {|key, value| value.blank? }
   end
 
   def results_for
@@ -24,7 +24,7 @@ class UserSearch
     user_columns = User.columns_hash
     criteria.each do |key, value|
       if user_columns[key].type == :integer
-      	@results = @results.where("#{key} = ?", value)
+        @results = @results.where("#{key} = ?", value)
       else	
         @results = @results.where("#{key} LIKE ?", "%#{value}%")
       end 

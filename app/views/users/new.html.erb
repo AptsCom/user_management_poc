@@ -1,20 +1,17 @@
 <%= form_for :user, url: users_path do |f| %>
   <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :placeholder => 'First Name' %>
   </p>
  
   <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :placeholder => 'Last Name' %>
   </p>
  
   <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :placeholder => 'Email' %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit :class => "btn" %>
   </p>
 <% end %>
